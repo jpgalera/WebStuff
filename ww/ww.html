@@ -19,7 +19,7 @@
 			}
 			function startGame(){
 				// YOUR CODE GOES HERE
-				while (notPause == true){
+				if (notPause == true){
 					window.onkeypress = keyboardmove;
 					setInterval(function(){stage.step()},500);
 				}

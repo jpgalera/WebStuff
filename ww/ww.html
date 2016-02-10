@@ -13,6 +13,9 @@
 			interval=null;
 			notPause = true;
 			$(function() {
+				$("#startButton").click(function() {
+					startGame();
+				});
 				$("#pauseButton").click(function() {
 					pauseGame();
 				});
@@ -129,7 +132,7 @@
 									<td><img src="icons/south_east.svg" onclick="stage.player.step(1,1);"/></td>
 								</tr>
 							</table>
-							<button type="button" onclick="pauseGame()" id="pauseButton">PAUSE!</button>
+							<button type="button" onclick="pauseGame()" id="pauseButton">PAUSE!</button><button type="button" onclick="startGame()" id="startButton">PAUSE!</button>
 						</center>
 					</td>
 				</tr>

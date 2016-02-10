@@ -36,14 +36,17 @@
       }
       
       $(function(){
-          $('#registerButton').on('click',function(){
-              register($('#uname').val(), $('#pword').val());
-              $('#myform')[0].reset();
-          });
+          $('#exhibitA').html("<iframe src='ww/ww.html' align='middle' marginheight='.5em' height=98% width=99% frameBorder='0' sandbox='allow-scripts' >"+
+                "<p>Your browser does not support iframes.</p>"+
+              "</iframe>");
+          // $('#registerButton').on('click',function(){
+          //     register($('#uname').val(), $('#pword').val());
+          //     $('#myform')[0].reset();
+          // });
 
-          $('#loginButton').on('click',function(){
-              login($('#uname').val(), $('#pword').val());
-          });
+          // $('#loginButton').on('click',function(){
+          //     login($('#uname').val(), $('#pword').val());
+          // });
       });
     </script>
 

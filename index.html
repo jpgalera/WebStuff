@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JP's Home Page</title>
+    <link rel="stylesheet" href="indexStyle.css" type="text/css">
+    <script src="ww/jquery-2.1.0.js"></script>
+    <script>
+      function register(user,pass)
+      {
+        $.getJSON("register.php",{username: user, password: pass}, function(data){
+            if(data['status'] == 'ok'){
+              alert("Successfully created an account");
+            }
+            else{
+              alert(data['status']);
+            }
+        });
+      }
+
+      function login(user, pass){
+
+        $.getJSON("login.php", {username: user, password: pass}, function(data){
+          if(data['status']=='ok'){
+            alert("Successfully logged in!");
+            userLoggedIn = data['user'];
+            $('#exhibitA').html("<iframe src='ww/ww.html' align='middle' marginheight='.5em' height=98% width=99% frameBorder='0' sandbox='allow-scripts' >"+
+                "<p>Your browser does not support iframes.</p>"+
+              "</iframe>");
+          }
+          else{
+            alert(data['status']);
+            $('#myform')[0].reset();
+          }
+        });
+      }
+      
+      $(function(){
+          $('#registerButton').on('click',function(){
+              register($('#uname').val(), $('#pword').val());
+              $('#myform')[0].reset();
+          });
+
+          $('#loginButton').on('click',function(){
+              login($('#uname').val(), $('#pword').val());
+          });
+      });
+    </script>
+
+  </head>
+  <body>
+    <section class = 'title'>
+      <h1> JP's Home Page </h1>
+    </section>
+
+    <section id="exhibitA" data-type="background" data-stellar-background-ratio="0.5">
+      <article id="warehousewars">
+        <center><h1>Warehouse Wars!</h1></center>
+        <h1> Login: </h1>
+        <form method="request" id="myform">
+          Username:
+          <input type="text" name="username" placeholder="username" value="" id="uname"><br>
+          Password:
+          <input type="password" name="password" placeholder="password" value="" id="pword"><br>
+          <input type="button" name="login" value="login" id="loginButton">
+          <input type="button" name="register" value="Register Now!" id="registerButton">
+        </form>
+      </article>
+    </section>
+
+    <section id="exhibitB" data-type="background" data-backgroundata-stellar-background-ratio="0.5">
+      <article>
+        <center><h1>YikYak!</h1></center>
+      </article>
+    </section>
+
+    <section id="exhibitC" data-type="background" data-stellar-background-ratio="0.5">
+      <article>
+        <h1>8 Queens solver</h1>
+        
+      </article>
+    </section>
+  </body>
+</html>
+
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
+		<title>Computing Science 309 Warehouse Wars</title>
+		<script language="javascript" src="ww.js" > </script>
+
+		<script> 
+			stage = null;
+			score = 0;
+			// SOME GLUE CODE CONNECTING THIS PAGE TO THE STAGE
+			interval=null;
+			function setupGame(){
+				stage=new Stage(20,20,7,60,1,"stage");
+				stage.initialize();
+				startGame();
+			}
+			function startGame(){
+				// YOUR CODE GOES HERE
+				window.onkeypress = keyboardmove;
+				setInterval(function(){stage.step()},500);
+			}
+			function pauseGame(){
+				// YOUR CODE GOES HERE
+			}
+			// YOUR CODE GOES HERE
+			function keyboardmove(evnt){
+				switch (evnt.charCode) {
+				    case 119:  /* up == w */
+					stage.player.step(-1,0);
+					break;
+				    case 115:  /* down == s */
+					stage.player.step(1,0);
+					break;
+				    case 97:  /* left == a */
+					stage.player.step(0,-1);
+					break;
+				    case 100:  /* right == d */
+					stage.player.step(0,1);
+					break;
+				    case 113: /* upleft == q */
+					stage.player.step(-1,-1);
+					break;
+				    case 101:  /* upright == e */
+					stage.player.step(-1,1);
+					break;
+				    case 122:  /* downleft == z */
+					stage.player.step(1,-1);
+					break;
+				    case 99:  /* right == c */
+					stage.player.step(1,1);
+					break;
+				}
+			}		
+		</script>
+		<style>
+			/* style parts of the legend, the controls and the elements in the stage appropriately */
+			center{
+				color: white;
+			}
+
+			#legend{
+				border: 1px solid white;
+			}
+
+		</style>
+	</head>
+	<body STYLE="background-color:transparent" onload="setupGame();" >
+		<center>
+			<h1>Warehouse Wars</h1>
+			<table>
+				<tr>
+					<td> <div id="stage"> </div></td> 
+					<td>
+						<center>
+							<h2>Legend</h2>
+							<table class="legend" border = 1>
+								<tr>
+									<td> <img src="icons/floor.png" id="blankImage" width = 24 height = 24/> </td>
+									<td> <img src="icons/lava-flower.png" id="boxImage" width = 24 height = 24/> </td>
+									<td> <img src="icons/stickyBox.png" id="stickyboxImage" width = 24 height = 24/> </td>
+									<td> <img src="icons/templar_assasin.png" id="playerImage" width = 24 height = 24/> </td>
+									<td> <img src="icons/shadow_demon.png" id="monsterImage" width = 24 height = 24/> </td>
+									<td> <img src="icons/roshan_icon.png" id="smartMonsterImage" width = 24 height = 24/> </td>
+									<td> <img src="icons/lava-wall.png" id="wallImage" width = 24 height = 24/> </td>
+								</tr>
+								<tr>
+									<td> Empty <br/> Square </td>
+									<td> Box </td>
+									<td> Sticky <br/> Box </td>
+									<td> Player </td>
+									<td> Monster </td>
+									<td> Smart <br/> Monster </td>									
+									<td> Wall </td>
+								</tr>
+							</table>
+							<h2>Controls</h2>
+							<table class="controls" border = 1>
+								<tr>
+									<td><img src="icons/north_west.svg" onclick="stage.player.step(-1,-1);" /></td>
+									<td><img src="icons/north.svg" onclick="stage.player.step(-1,0);"/></td>
+									<td><img src="icons/north_east.svg" onclick="stage.player.step(-1,1);"/></td>
+								</tr>
+								<tr>
+									<td><img src="icons/west.svg" onclick="stage.player.step(0,-1);"/></td>
+									<td>&nbsp;</td>
+									<td><img src="icons/east.svg" onclick="stage.player.step(0,1);"/></td>
+								</tr>
+								<tr>
+									<td><img src="icons/south_west.svg" onclick="stage.player.step(1,-1);"/></td>
+									<td><img src="icons/south.svg" onclick="stage.player.step(1,0);"/></td>
+									<td><img src="icons/south_east.svg" onclick="stage.player.step(1,1);"/></td>
+								</tr>
+							</table>
+						</center>
+					</td>
+				</tr>
+			</table>
+		</center>
+	</body>
+</html>
+

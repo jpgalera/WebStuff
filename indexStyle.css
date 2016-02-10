@@ -1,0 +1,183 @@
+/*
+*Styling Variables
+*/
+/******************************/
+body {
+  background-color: black;
+  margin: 0;
+}
+
+section.title {
+  /*background-image: url("images/background/rubick.png");*/
+  background-color: #7B887B;
+  background-size: contain;
+  color: #D3D3D3;
+  text-align: center;
+}
+
+section.title h1 {
+  font-size: 60px;
+  font-family: Helvetica;
+  margin: 0;
+  padding-top: .7em;
+  padding-bottom: .7em;
+}
+
+#exhibitA {
+  /*background-image: url("images/background/shadowfiend.png");*/
+  background-color: #7B887B;
+  background-size: cover;
+  overflow: auto;
+  background-repeat: no-repeat;
+  min-height: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  position: relative;
+  background-attachment: fixed;
+  font-family: Fantasy;
+}
+
+#warehousewars {
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  position: relative;
+  top: 20px;
+  width: 100%;
+  padding-bottom: 20px;
+}
+/*
+#home
+article
+table {
+  position: static;
+  top: 20px;
+  margin-left: 5px;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+#home
+article
+table
+tr
+td
+table {
+  margin-top: 0px;
+}
+
+#home
+article
+table
+tr
+td
+table
+tr {
+  background-color: grey;
+}
+
+#home
+article
+table
+tr
+td
+table
+tr
+th {
+  color: blue;
+  font-family: Helvetica;
+  font-size: 20px;
+  text-align: center;
+}
+
+#home
+article
+table
+tr
+td
+div.feed {
+  overflow: auto;
+  position: relative;
+}
+
+#home
+article
+table
+tr
+td
+div.feed
+table {
+  position: absolute;
+  top: 0px;
+  overflow: auto;
+}
+
+#home
+article
+table
+tr
+td
+div.feed
+table
+tr {
+  border: 1px;
+}
+*/
+
+#exhibitB {
+  /*background-image: url("images/background/invoker.png");*/
+  background-color: #566056;
+  background-size: cover;
+  overflow: auto;
+  background-repeat: no-repeat;
+  min-height: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  position: relative;
+  background-attachment: fixed;
+  font-family: Fantasy;
+}
+
+#about
+article
+h1 {
+  font-size: 80px;
+  text-align: center;
+  color: green;
+  height: 458px;
+  position: absolute;
+  top: 150px;
+  width: 100%;
+}
+
+#exhibitC {
+  /*background-image: url("images/background/stormspirit.png");*/
+  background-color: #121812;
+  background-size: cover;
+  overflow: auto;
+  background-repeat: no-repeat;
+  min-height: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  position: relative;
+  background-attachment: fixed;
+  font-family: Fantasy;
+}
+
+#projects
+article
+h1 {
+  font-size: 80px;
+  text-align: center;
+  color: white;
+  height: 458px;
+  position: absolute;
+  top: 100px;
+  width: 100%;
+}

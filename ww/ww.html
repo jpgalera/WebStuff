@@ -12,10 +12,14 @@
 			// SOME GLUE CODE CONNECTING THIS PAGE TO THE STAGE
 			interval=null;
 			notPause = true;
+			$(function() {
+				$("#pauseButton").click(function() {
+					pauseGame();
+				});
+			});
 			function setupGame(){
 				stage=new Stage(20,20,7,60,1,"stage");
 				stage.initialize();
-				startGame();
 			}
 			function startGame(){
 				// YOUR CODE GOES HERE

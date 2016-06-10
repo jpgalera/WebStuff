@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html leng="en">
+	<head>
+		<meta chartset="utf-8">
+		<meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
+		<title>Simple XMPP Client</title>
+		<script src="strophejs-1.2.5/strophe.js"></script>
+		<script type="text/javascript">
+			// this url is responsible for binding our requests to xmpp and vice versa. bosh service url can be found in openfire admin console
+			var BOSH_SERVICE = 'http://localhost:7070/http-bind/';  
+
+			var connection   = null;           // The main Strophe connection object.
+			var XMPP_DOMAIN  = 'localhost'; // Domain we are going to be connected to.
+			var xmpp_user    = 'admin';     // xmpp user name
+
+			function onConnect()
+			{
+			        // THESE STATUS CODES ARE SELF EXPLANATORY
+				if (status == Strophe.Status.CONNECTING) {
+					
+
+				} else if (status == Strophe.Status.CONNFAIL) {
+					
+
+				} else if (status == Strophe.Status.DISCONNECTING) {
+					
+				} else if (status == Strophe.Status.DISCONNECTED) {
+					
+				} else if (status == Strophe.Status.CONNECTED) {
+					
+					// We add a listener that will catch the opposite user's msgs
+					connection.addHandler(onMessage, null, 'message', null, null,  null); 
+					
+			               // We send online presense to the server. (pub sub concept)
+					connection.send($pres().tree());
+					
+					    
+				}
+
+			}
+
+			function sendMsg(to_jid)
+			{
+			          var uniqueID = connection.getUniqueId("my:code"); // Unique ID to tract the message.
+				// Next we build a XMPP message box similar to this:
+				// <message id='4092:MBM:Example:1'
+				//          to='f8a62b10-d7a9-4818-9f35-28d67696958b@anon.example'
+				//          from='7fc4c2ef-dcf7-4433-8efa-8a6555633ab6@anon.example/a70ece01'>
+				//          <body>Hey there.</body>
+				// </message>
+				// $msg is a helper function. .c() sets the element name, .t() the content.
+				// See documentation of Strophe for more info.
+				var reqChannelsItems = $msg({"id":uniqueID, "to":to_JID})
+										   .c("body").t(body);
+				// And we send the created Message
+				connection.send(reqChannelsItems.tree()); 
+			        // ON THE OPPOSITE SIDE  onMEssageRecieve() function will be  triggered
+
+				// HERE DO WHAT YOU WANT AFTER SENDING THE MSg
+
+			}
+
+			function onMsgReceive(stanza)
+			{ 
+			  console.log(stanza); // check this msg data and do what you want
+			 
+
+			}
+			$(document).ready(function() {
+				// We initialize the Strophe connection.
+				connection = new Strophe.Connection(BOSH_SERVICE);
+				connection.connect(xmpp_user+'@'+XMPP_DOMAIN, 'password', onConnect);
+			});
+
+		</script>
+
+
+	</head>
+	<body>
+		<div id='chat-area'>
+	    	<ul></ul>
+	    </div>
+	    
+	    <div id='roster-area'>
+	    	<ul></ul>
+	    </div>
+
+	</body>
+</html>

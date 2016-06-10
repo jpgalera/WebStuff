@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How stereotyped are OverWatch Characters?</title>
+    <link rel="stylesheet" href="indexStyle.css" type="text/css">
+  </head>
+  <body>
+    <section id="exhibitA" data-type="background" data-stellar-background-ratio="0.5">
+      <article id="OverwatchHome">
+      </article>
+    </section>
+
+    <section id="exhibitB" data-type="background" data-backgroundata-stellar-background-ratio="0.5">
+      <article id="HeroInfo">
+        <center><h1><font style="font-family: Overwatch;"> Heroes </font></h1></center>
+        <!-- characters,audio, lore goes here! -->
+        <audio id="audio_DVA">
+          <source src="audio/Overwatch-DVA.mp3" type="audio/mpeg" />
+        </audio>
+        <audio id="audio_Lucio">
+          <source src="audio/Overwatch-Lucio.mp3" type="audio/mpeg" />
+        </audio>
+        <audio id="audio_Genji">
+          <source src="audio/Overwatch-Genji.mp3" type="audio/mpeg" />
+        </audio>
+        <script type="text/javascript">
+          var DvaAudio = false;
+          var LucioAudio = false;
+          var GenjiAudio = false;
+          var audioDVA = document.getElementById("audio_DVA");
+          var audioLucio = document.getElementById("audio_Lucio");
+          var audioGenji = document.getElementById("audio_Genji");
+
+          function runAudio(character){
+            if (character == 'Dva'){
+              if (DvaAudio == false){
+                audioDVA.play();
+                DvaAudio = true;
+              }
+              else{
+                audioDVA.pause();
+                DvaAudio = false;
+              }
+            }
+            else if (character == 'Lucio'){
+              if (LucioAudio == false){
+                audioLucio.play();
+                LucioAudio = true;
+              }
+              else{
+                audioLucio.pause();
+                LucioAudio = false;
+              }
+            }
+            else if (character == 'Genji'){
+              if (GenjiAudio == false){
+                audioGenji.play();
+                GenjiAudio = true;
+              }
+              else{
+                audioGenji.pause();
+                GenjiAudio = false;
+              }
+            }
+          }
+        </script>
+
+        <div class="image123">
+            <div class="imgContainer">
+              <img src="images/DVA.jpg" height="200" width="200" onClick="runAudio('Dva')"/>
+              <p>D.va</p>
+            </div>
+            <div class="imgContainer">
+              <img class="middle-img" src="images/lucio-overwatch.jpg"/ height="200" width="200" onClick="runAudio('Lucio')"/>
+              <p>Lucio</p>
+            </div>
+            <div class="imgContainer">
+              <img src="images/overwatch-genji.jpg"/ height="200" width="200" onClick="runAudio('Genji')"/>
+              <p>Genji</p>
+            </div>
+        </div>
+        <div class="image456">
+            <div class="imgContainer1">
+              <img id="TracerImg" src="images/tracer-overwatch.jpg" width="200" height="200">
+
+              <!-- The Modal -->
+              <div id="myModal" class="modal">
+
+                <!-- The Close Button -->
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01" src="images/tracer-pose.png">
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption"></div>
+              </div>
+              <p>Tracer</p>
+            </div>
+            
+            <div class="imgContainer1">
+              <img src="images/overwatch-zenyatta.jpg"/ height="200" width="200"/>
+              <p>Zenyatta</p>
+            </div>
+        </div>
+        <script type="text/javascript">
+          // Get the modal
+          var modal = document.getElementById('myModal');
+
+          // Get the image and insert it inside the modal - use its "alt" text as a caption
+          var img = document.getElementById('TracerImg');
+          var modalImg = document.getElementById("img01");
+          var captionText = document.getElementById("caption");
+          img.onclick = function(){
+              modal.style.display = "block";
+              // modalImg.src = this.src;
+              modalImg.alt = this.alt;
+              captionText.innerHTML = this.alt;
+          }
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() { 
+            modal.style.display = "none";
+          }
+        </script>
+      </article>
+      </article>
+    </section>
+
+    <section id="exhibitC" data-type="background" data-stellar-background-ratio="0.5">
+      <article>
+        <h1>Semiotics</h1>
+        <!-- explanation of semiotic relations go here! -->
+      </article>
+    </section>
+  </body>
+</html>
+
